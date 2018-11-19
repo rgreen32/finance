@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    quote
+{% endblock %}
+
+{% block main %}
+
+    <h1><strong>Your Portfolio</strong></h1>
+   <table class="table table-striped">
+       <th>Company Name</th>
+       <th>Number of Shares</th>
+       <th>Share Price</th>
+       <th>Company Symbol</th>
+       <th>Value</th>
+           {% for item in results %}
+               <tr><td>{{item.Name}}</td>
+               <td>{{item.Shares}}</td>
+               <td>{{item.Price}}</td>
+               <td>{{item.Symbol}}</td>
+               <td>{{item.Price * item.Shares}}</td></tr>
+            {% endfor %}
+   </table>
+
+{% endblock %}

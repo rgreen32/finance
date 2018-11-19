@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    quote
+{% endblock %}
+
+{% block main %}
+    <form action="/sell" method="post">
+        <div class="form-group">
+            <select name="symbol">
+                <option selected disabled>Choose a company</option>
+                {% for item in results %}
+                    <option value={{item["Symbol"]}}>{{item["Symbol"]}}</option>
+                {% endfor %}
+
+            </select>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="shares" placeholder="Number of shares" type="text"/>
+        </div>
+        <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+    {% if soldPrice %}
+        <div>You made: {{soldPrice | usd}}... Your new balance is:{{newCash1 | usd}}</div>
+    {% endif %}
+
+{% endblock %}

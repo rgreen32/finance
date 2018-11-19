@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    quote
+{% endblock %}
+
+{% block main %}
+
+    <h1><strong>Your History</strong></h1>
+   <table>
+           {% for item in results %}
+               <tr><td>Company Symbol: {{item.Symbol}}</td>
+               <td>Number of Shares Transacted: {{item.Shares}}</td>
+               <td>Share Transaction Price: {{item.Price}}</td>
+               <td>Date: {{item.Transacted}}</td></tr>
+            {% endfor %}
+   </table>
+
+{% endblock %}
